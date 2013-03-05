@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza Store</title>
+    <link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+
+
+
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html">Pizza Store</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="#">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>&nbsp;</h1>
+        <p class="lead"></p>
+    </div>
+</header>
+<div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+        <div class="span9">
+
+            <h3>Available pizzas</h3>
+
+            <table class="table table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                <tbody data-bind="foreach: pizzas">
+
+                <tr>
+                    <td>
+                        <span data-bind='text: name'/>
+                    </td>
+                    <td>
+                        <span data-bind='text: price' />
+                    </td>
+                    <td>
+                    <td><a href='#' class="btn btn-danger" data-bind='click: $root.remove'>Delete</a></td>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <form class="form-inline">
+                <label>Add new</label>
+                <input data-bind="value: pizzaName" id="pizzaName" placeholder="Name">
+                <input id="pizzaPrice" data-bind="value: pizzaPrice" placeholder="Price">
+
+                <button data-bind='click: add' class="btn">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../lib/underscore.js"></script>
+<script type="text/javascript" src="../lib/knockout-2.2.1.debug.js"></script>
+<script type="text/javascript" src="../lib/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../src/pizza.js"></script>
+<script>
+    viewModel = new ViewModel([{name: 'classic', price: 180},
+        {name: 'large', price: 240}]);
+    ko.applyBindings(viewModel);
+</script>
+
+</body>
+</html>
