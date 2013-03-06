@@ -20,5 +20,10 @@ var OrderViewModel = function (pizzaViewModel) {
 
     self.add = function () {
        self.cart.push({pizza: self.selectedPizza(), qty: self.qty()})
+        self.qty(0);
+    };
+
+    self.remove = function(order) {
+        $.each(self.pizzas(), function() { findAndRemove(self, pizza.name) })
     };
 }

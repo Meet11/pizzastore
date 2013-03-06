@@ -41,12 +41,39 @@
     </div>
 </header>
 <div class="container">
+    <h3>Orders</h3>
+    <div  class="row">
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <tbody data-bind="foreach: cart">
 
+            <tr>
+                <td>
+                    <span data-bind='text: pizza.name'/>
+                </td>
+                <td>
+                    <span data-bind='text: pizza.price' />
+                </td>
+                <td>
+                    <span data-bind='text: qty' />
+                </td>
+                <td>
+                    <span data-bind='text: (qty*pizza.price)' />
+                </td>
+                <td><a href='javascript: alert("yet to implement")' class="btn btn-danger" >Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <!-- Docs nav
     ================================================== -->
     <div class="row">
         <div class="span9">
-            <h3>Orders</h3>
             <select data-bind="foreach: pizzaViewModel.pizzas(), value: selectedPizza">
                 <option data-bind="value: $data, text: ($data.name + ' - Rs ' + $data.price)"/>
             </select>
@@ -54,6 +81,12 @@
             <input data-bind="value: qty">
             Price : <span data-bind='text: selectedPrice()'/>
         </div>
+        <div>
+            Grand total : <b><span data-bind='text: totalPrice()'/></b>
+        </div>
+    </div>
+    <div  class="row">
+        <button data-bind="click: add">Add</button>
     </div>
 </div>
 <script type="text/javascript" src="../lib/underscore.js"></script>

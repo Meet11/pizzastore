@@ -11,7 +11,7 @@ describe("Order viewmodel", function() {
 
     it("initializes", function() {
         expect(pizzaViewModel.pizzas().length).toEqual(2);
-        expect(viewModel.orders().length).toEqual(0);
+        expect(viewModel.cart().length).toEqual(0);
     });
 
     it("add a pizza  with quantity", function() {
@@ -30,6 +30,4 @@ describe("Order viewmodel", function() {
         expect(viewModel.selectedPrice()).toEqual(360);
         expect(viewModel.totalPrice()).toEqual((480+360));
     });
-
-
 })
